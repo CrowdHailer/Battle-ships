@@ -23,6 +23,7 @@ class Board
 
 		row, col = ROWS.index(number), COLUMNS.index(letter)
 		@rows[row][col] = !!@rows[row][col][/[xs]/] ? "x" : "o"
+		@rows[row][col].dup
 	end
 
 	def opponent_view
