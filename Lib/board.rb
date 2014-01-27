@@ -6,7 +6,6 @@ class Board
 	COORDS = (0..9).to_a
 	ORIENTATIONS = [:right, :down]
 	
-
 	def initialize(player)
 		@player = player
 		@rows = Array.new(10) { Array.new(10, "") }
@@ -27,14 +26,12 @@ class Board
 	end
 
 	def opponent_view
-		rows.map {|array| array.map {|x| x == "s" ? "" : x }}
+		rows.map {|row| row.map {|element| element == "s" ? "" : element }}
 	end
 
 	def populate_board
 		SHIP_SIZES.each do |length|
-			ship_placed = false
-			while !ship_placed
-				ship_placed = add_ship(length, COORDS.sample, COORDS.sample, ORIENTATIONS.sample)
+			while !add_ship(length, COORDS.sample, COORDS.sample, ORIENTATIONS.sample)
 			end
 		end
 	end

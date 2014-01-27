@@ -12,6 +12,6 @@ class Player
 	end
 
 	def shoot(at_coordinates, opponents_board)
-		opponents_board.register_shot at_coordinates
+		opponents_board.register_shot(at_coordinates)
 	end
 end
